@@ -1,0 +1,28 @@
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".elementor-menu-toggle");
+  const html = document.documentElement;
+  const body = document.body;
+
+  const observer = new MutationObserver(() => {
+    if (menuToggle.classList.contains("elementor-active")) {
+      body.style.overflow = "hidden";
+      html.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "";
+      html.style.overflow = "";
+    }
+  });
+
+  observer.observe(menuToggle, { attributes: true, attributeFilter: ["class"] });
+});
+
+</script>
+
+<style>
+body.no-scroll,
+html.no-scroll {
+  overflow: hidden !important;
+}
+</style>
